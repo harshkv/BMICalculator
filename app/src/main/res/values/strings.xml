@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">welcome to Android APP </string>
+    <string name="calculate">Calcuate BMI</string>
+
+</resources>
