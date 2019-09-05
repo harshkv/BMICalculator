@@ -2,9 +2,11 @@ package com.example.bmicalculator;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -39,15 +41,17 @@ public class MainActivity extends AppCompatActivity {
                 tv_resultBmi.setVisibility(view.GONE);
 
                 if (et_weight.getText().toString().equals("")) {
-                    et_weight.setError("Hey! I need a value");
-                    Toast.makeText(MainActivity.this, " Invalid Inputs", Toast.LENGTH_SHORT).show();
+                    et_weight.setError("Hey! I need a value for weight!");
+                    Toast.makeText(MainActivity.this, " Invalid Inputs for weights", Toast.LENGTH_SHORT).show();
                 } else if (et_heightFt.getText().toString().equals("")) {
-                    et_heightFt.setError("Hey! I need a value");
-                    Toast.makeText(MainActivity.this, " Invalid Inputs", Toast.LENGTH_SHORT).show();
+                    et_heightFt.setError("Hey! I need a value for height in feet!");
+                    Toast.makeText(MainActivity.this, " Invalid Inputs for height in feet!", Toast.LENGTH_SHORT).show();
                 } else if (et_inches.getText().toString().equals("")) {
-                    et_inches.setError("Hey! I need a value");
-                    Toast.makeText(MainActivity.this, " Invalid Inputs", Toast.LENGTH_SHORT).show();
+                    et_inches.setError("Hey! I need a value for height in inches!");
+                    Toast.makeText(MainActivity.this, " Invalid Inputs for height in inches!", Toast.LENGTH_SHORT).show();
                 } else {
+                    InputMethodManager imgr = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imgr.hideSoftInputFromWindow(b_calcuate.getWindowToken(), 0);
 
                     wgt = Double.parseDouble(et_weight.getText().toString());
                     feet = Integer.parseInt(et_heightFt.getText().toString());
