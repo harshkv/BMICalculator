@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
                         tv_resultComment.setText("You are Normal weight!");
                     } else if (result >= 25 && result <= 29.9) {
                         tv_resultComment.setText("You are Overweight!");
-                    } else if (result > 30) {
+                    } else if (result >= 30) {
                         tv_resultComment.setText("You are Obese!");
                     }
                     tv_resultComment.setVisibility(view.VISIBLE);
